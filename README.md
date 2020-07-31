@@ -1,6 +1,6 @@
 # Looking for an Array Element
 
-A intermediate level task for practicing loops, branches and arrays.
+An intermediate level task for practicing loops, branches and arrays.
 
 The task is to implement six methods using "for", "while" and "do" statements.
 
