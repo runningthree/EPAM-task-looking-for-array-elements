@@ -17,9 +17,9 @@ You are allowed to use loop statements (for, while and do), [Array.Length](https
 
 1. Implement "GetIntegersCount(int[], int[])" method in the [IntegersCounter.cs](LookingForArrayElements/IntegersCounter.cs) file. The method should count all elements of "arrayToSearch" array that appears in "elementsToSearchFor" array.
 
-Here's an example for ["GetIntegersCount_ParametersAreValid_ReturnsResult"](LookingForArrayElements.Tests/IntegersCounterTests.cs) unit test.
+Here's an example for ["GetIntegersCount_ParametersAreValid_ReturnsResult"](LookingForArrayElements.Tests/IntegersCounterTests.cs#L55) unit test.
 
-arrayToSearch is an array of integers with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } elements, and elementsToSearchFor is an array of integers with { 2, 5, 8 } elements.
+arrayToSearch is an array with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } elements, and elementsToSearchFor is an array with { 2, 5, 8 } elements.
 
 | Position in arrayToSearch  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |----------------------------|---|---|---|---|---|---|---|---|---|
@@ -30,9 +30,9 @@ arrayToSearch is an array of integers with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } element
 
 2. Implement "GetIntegersCount(int[], int[], int, int)" method in the [IntegersCounter.cs](LookingForArrayElements/IntegersCounter.cs) file. The method should work like the previous one, but it has additional options (startIndex and count) that can be used for getting a subset of arrayToSearch.
 
-Here's an example for ["GetIntegersCount_ParametersAreValid_ReturnsResult"](LookingForArrayElements.Tests/IntegersCounterTests.cs) unit test.
+Here's an example for ["GetIntegersCount_ParametersAreValid_ReturnsResult"](LookingForArrayElements.Tests/IntegersCounterTests.cs#L136) unit test.
 
-arrayToSearch is an array of integers with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } elements, and elementsToSearchFor is an array of integers with { 2, 5, 8 } elements. startIndex is 2, and count is 5.
+arrayToSearch is an array with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } elements, and elementsToSearchFor is an array with { 2, 5, 8 } elements. startIndex is 2, and count is 5.
 
 | Position in arrayToSearch  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |----------------------------|---|---|---|---|---|---|---|---|---|
@@ -42,7 +42,20 @@ arrayToSearch is an array of integers with { 1, 2, 3, 4, 5, 6, 7, 8, 9 } element
 | Sum = 1                    | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 
 
-3. Implement "GetFloatsCount(float[], float[], float[])" method in the [FloatCounter.cs](LookingForArrayElements/FloatCounter.cs) file. See the method documentation and TODO.
+3. Implement "GetFloatsCount(float[], float[], float[])" method in the [FloatCounter.cs](LookingForArrayElements/FloatCounter.cs) file. The method should count all elements of "arrayToSearch" array that appears in ranges defined by values in "rangeStart" and "rangeEnd" arrays.
+
+Here's an example for ["GetFloatsCount_ParametersAreValid_ReturnsResult"](LookingForArrayElements.Tests/FloatCounterTests.cs#L92) unit test.
+
+arrayToSearch is an array with { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f } elements, rangeStart array has { 0.1f, 0.8f } elements, rangeEnd array has { 0.2f, 0.9f } elements. That means the first range is 0.1f-0.2f, and the second tange is 0.8f-0.9f.
+
+| Position in arrayToSearch  |   0  |   1  |    2 |   3  |   4  |   5  |   6  |   7  |   8  |
+|----------------------------|------|------|------|------|------|------|------|------|------|
+| arrayToSearch values       | 0.1f | 0.2f | 0.3f | 0.4f | 0.5f | 0.6f | 0.7f | 0.8f | 0.9f |
+| 0.1f-0.2f range            | 0.1f | 0.2f |      |      |      |      |      |      |      |
+| 0.8f-0.9f range            |      |      |      |      |      |      |      | 0.8f | 0.9f |
+| Sum = 4                    |   1  |   1  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |
+
+
 4. Implement "GetFloatsCount(float[], float[], float[], int, int)" method in the [FloatCounter.cs](LookingForArrayElements/FloatCounter.cs) file. See the method documentation and TODO.
 5. Implement "GetDecimalsCount(decimal[], decimal[][])" method in the [DecimalCounter.cs](LookingForArrayElements/DecimalCounter.cs) file. See the method documentation and TODO.
 6. Implement "GetDecimalsCount(decimal[], decimal[][], int, int)" method in the [DecimalCounter.cs](LookingForArrayElements/DecimalCounter.cs) file. See the method documentation and TODO.
