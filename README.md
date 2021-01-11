@@ -85,6 +85,8 @@ If a compiler error or warning message is not clear, [review errors details](htt
 
 * Tour of C#
   * [Arrays](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/arrays)
+* C# Programming Guide
+  * [Arrays](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/)
 * C# Reference
   * [for statement](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for)
   * [while statement](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while)
