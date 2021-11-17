@@ -12,8 +12,29 @@ namespace LookingForArrayElements
         /// <returns>The number of occurrences of the elements that are in <paramref name="elementsToSearchFor"/> <see cref="Array"/>.</returns>
         public static int GetIntegersCount(int[] arrayToSearch, int[] elementsToSearchFor)
         {
-            // TODO #1. Implement the method using "for" statement.
-            throw new NotImplementedException();
+            if (arrayToSearch is null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            if (elementsToSearchFor is null)
+            {
+                throw new ArgumentNullException(nameof(elementsToSearchFor));
+            }
+
+            int result = 0;
+            for (int i = 0; i < elementsToSearchFor.Length; i++)
+            {
+                for (int k = 0; k < arrayToSearch.Length; k++)
+                {
+                    if (elementsToSearchFor[i] == arrayToSearch[k])
+                    {
+                        result++;
+                    }
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -26,8 +47,40 @@ namespace LookingForArrayElements
         /// <returns>The number of occurrences of the elements that are in <paramref name="elementsToSearchFor"/> <see cref="Array"/>.</returns>
         public static int GetIntegersCount(int[] arrayToSearch, int[] elementsToSearchFor, int startIndex, int count)
         {
-            // TODO #2. Implement the method using "while" statement.
-            throw new NotImplementedException();
+            if (arrayToSearch is null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            if (elementsToSearchFor is null)
+            {
+                throw new ArgumentNullException(nameof(elementsToSearchFor));
+            }
+
+            if (startIndex < 0 || startIndex >= arrayToSearch.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startIndex));
+            }
+
+            if (count < 0 || count > arrayToSearch.Length - startIndex)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
+            int result = 0;
+            while (count-- > 0)
+            {
+                int lengthOfElementsToSearchFor = elementsToSearchFor.Length;
+                while (--lengthOfElementsToSearchFor >= 0)
+                {
+                    if (elementsToSearchFor[lengthOfElementsToSearchFor] == arrayToSearch[count + startIndex])
+                    {
+                        result++;
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

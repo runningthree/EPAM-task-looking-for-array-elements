@@ -13,8 +13,47 @@ namespace LookingForArrayElements
         /// <returns>The number of occurrences of the <see cref="Array"/> elements that match the range criteria.</returns>
         public static int GetFloatsCount(float[] arrayToSearch, float[] rangeStart, float[] rangeEnd)
         {
-            // TODO #3. Implement the method using "for" statement.
-            throw new NotImplementedException();
+            if (arrayToSearch is null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            if (rangeStart is null)
+            {
+                throw new ArgumentNullException(nameof(rangeStart));
+            }
+
+            if (rangeEnd is null)
+            {
+                throw new ArgumentNullException(nameof(rangeEnd));
+            }
+
+            if (rangeStart.Length != rangeEnd.Length)
+            {
+                throw new ArgumentException("Invalid range");
+            }
+
+            for (int k = 0; k < rangeStart.Length; k++)
+            {
+                if (rangeStart[k] > rangeEnd[k])
+                {
+                    throw new ArgumentException("The range start value is greater than the range end value.");
+                }
+            }
+
+            int result = 0;
+            for (int i = 0; i < arrayToSearch.Length; i++)
+            {
+                for (int k = 0; k < rangeStart.Length; k++)
+                {
+                    if (arrayToSearch[i] >= rangeStart[k] && arrayToSearch[i] <= rangeEnd[k])
+                    {
+                        result++;
+                    }
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -28,8 +67,65 @@ namespace LookingForArrayElements
         /// <returns>The number of occurrences of the <see cref="Array"/> elements that match the range criteria.</returns>
         public static int GetFloatsCount(float[] arrayToSearch, float[] rangeStart, float[] rangeEnd, int startIndex, int count)
         {
-            // TODO #4. Implement the method using "do..while" statements.
-            throw new NotImplementedException();
+            if (arrayToSearch is null)
+            {
+                throw new ArgumentNullException(nameof(arrayToSearch));
+            }
+
+            if (rangeStart is null)
+            {
+                throw new ArgumentNullException(nameof(rangeStart));
+            }
+
+            if (rangeEnd is null)
+            {
+                throw new ArgumentNullException(nameof(rangeEnd));
+            }
+
+            if (rangeStart.Length != rangeEnd.Length)
+            {
+                throw new ArgumentException("Invalid range");
+            }
+
+            for (int k = 0; k < rangeStart.Length; k++)
+            {
+                if (rangeStart[k] > rangeEnd[k])
+                {
+                    throw new ArgumentException("The range start value is greater than the range end value.");
+                }
+            }
+
+            if (startIndex < 0 || startIndex >= arrayToSearch.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startIndex));
+            }
+
+            if (count < 0 || arrayToSearch.Length - startIndex < count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
+            int result = 0;
+            do
+            {
+                int currentIndexInArrayToSearch = startIndex + count - 1;
+                int lengthOfRange = rangeStart.Length - 1;
+                if (lengthOfRange < 0)
+                {
+                    break;
+                }
+
+                do
+                {
+                    if (arrayToSearch[currentIndexInArrayToSearch] >= rangeStart[lengthOfRange] && arrayToSearch[currentIndexInArrayToSearch] <= rangeEnd[lengthOfRange])
+                    {
+                        result++;
+                    }
+                }
+                while (lengthOfRange-- > 0);
+            }
+            while (--count > 0);
+            return result;
         }
     }
 }
